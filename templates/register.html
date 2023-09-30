@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<style>
+    *{
+        padding:0;margin:0;font-family:sans-serif;
+    }
+    body{
+        background:url('img/register.jpg') no-repeat;background-size:cover;color:#fff;
+    }
+    .registration-form{
+        position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;
+    }
+    .registration-form h1{
+        font-size:30px;text-align:center;text-transform:uppercase;margin:40px 0;
+    }
+    .registration-form p{
+        font-size:20px;margin:15px 0;
+    }
+    .registration-form input{
+        font-size:16px;padding:15px 10px;width:100%;border:0px;border-radius:5px;outline:2px;
+    }
+    .registration-form button{
+        font-size:18px;font-weight:bold;margin:30px 0;padding:10px 15px;width:105%;border:0;border-radius:5px;background-color:#fff;font-color:white;
+    }
+    .registration-form button:hover{
+        color:red;
+    }
+</style>
+<body style="background-image: url({% static 'img/register.jpg' %});background-size:100%;background-size:cover;">
+    <div class="registration-form">
+        <h1>Registration</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>Username:</p>
+            <input type="text" name="username" placeholder="Enter your user name"><br>
+            <p>Password:</p>
+            <input type="password" name="password" placeholder="Enter your password"><br>
+            <p>Confirm Password:</p>
+            <input type="password" name="password1" placeholder="Re enter your password"><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% for msg in messages %}
+<h1>{{msg}}</h1>
+{% endfor %}
+</body>
+</html>

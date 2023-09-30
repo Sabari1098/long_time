@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block metadescription %}{% endblock %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        {% include 'header.html' %}
+        {% include 'nav.html' %}
+        {% block content %}
+        {% endblock %}
+    </div>
+        {% include 'footer.html' %}
+
+  </body>
+</html>
+
